@@ -1,7 +1,7 @@
 import Vue from "vue";
 import axios from "axios";
 import router from "../router"
-
+import verificaIsNullEmpyt from "../utils/utils"
 let baseURL = process.env.VUE_APP_BASE_ROUTE_API;
 
 console.log(process.env);
@@ -12,18 +12,32 @@ const api = axios.create({
     withCredentials: true,
 })
 
-api.interceptors.request.use(config => {
+api.interceptors.response.use(config => {
     try {
-        let jwtToken = JSON.parse(localStorage.getItem("token"));
-        config.headers = { "Authorization": `Bearer ${jwtToken}`}
+        console.log("config", config);
         return config;
     } catch (err) {
         delete localStorage.token;
         router.push({
-            name: "Login"
+            name: "login"
         });
-        throw err;
-    };
+    }
+})
+
+api.interceptors.response.use(
+    config =>config,
+    error => {
+        router.push({
+            name: "login"
+        });
+    }
+)
+
+api.interceptors.request.use(config => {
+    let jwtToken = JSON.parse(localStorage.getItem("token"));
+    if (!verificaIsNullEmpyt(jwtToken))
+        config.headers = { "Authorization": `Bearer ${jwtToken}` }
+    return config;
 });
 
 api.auth = (login, password) => {
