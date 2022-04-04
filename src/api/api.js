@@ -12,24 +12,14 @@ const api = axios.create({
     withCredentials: true,
 })
 
-api.interceptors.response.use(config => {
-    try {
-        console.log("config", config);
-        return config;
-    } catch (err) {
-        delete localStorage.token;
-        router.push({
-            name: "login"
-        });
-    }
-})
 
 api.interceptors.response.use(
-    config =>config,
+    config => config,
     error => {
-        router.push({
-            name: "login"
-        });
+        if (window.location.pathname.localeCompare("/login"))
+            router.push({
+                name: "login"
+            });
     }
 )
 

@@ -20,7 +20,7 @@
         </b-row>
         <b-row class="justify-content-center">
           <b-col cols=6 class="mt-3 w-100">
-            <b-button @click="autenticate" variant="success">access</b-button>
+            <b-button @click="authenticate" variant="success">access</b-button>
           </b-col>
         </b-row>
       </b-card>
@@ -37,7 +37,7 @@ export default {
     }
   },
   methods: {
-    autenticate(){
+    authenticate(){
       let vm = this;
       let {login , password} = vm.form;
       vm.$api.auth(login,password)
