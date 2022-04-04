@@ -20,6 +20,7 @@ api.interceptors.response.use(
             router.push({
                 name: "login"
             });
+            throw error;
     }
 )
 
