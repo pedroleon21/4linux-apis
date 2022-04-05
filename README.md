@@ -31,7 +31,7 @@ Pesteriormete inicie a tentativa de configurar o triefik na porta 80 redireciona
 abandonando a tentativa de mapear os recursos com o tryfik adicionei um docker compose para a imagem gerada dos serviços e configurando um proxy reverso para cada container. Os front end foi servido corretamente e 
 
 arquitetura proposta:
-![imagne](https://imgur.com/8KJsvip)
+https://imgur.com/8KJsvip
 
 A ideia deste projeto foi a criação de um projeto minimo e a publicação em ambiente produção para testes e evoluções posteriores a criação do ambiente.
 
