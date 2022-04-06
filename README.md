@@ -28,7 +28,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 Foi criado um projeto minimo para publicado em ambiente de produção. 
 os projetos foram clonados e seradamente feito build para uma imagem local. executando os containers foi feito teste local para validar o funcionanmento dos serviços nas portas 8080 e 8081.
 Pesteriormete inicie a tentativa de configurar o triefik na porta 80 redirecionando para seus respectivos recursos de acordo com a rota. Não objeve sucesso no mapeamento para a rota '/4linux' base da rota da api para o serviço, ja o front end foi facilmente servido no '/' do servidor.
-abandonando a tentativa de mapear os recursos com o tryfik adicionei um docker compose para a imagem gerada dos serviços e configurando um proxy reverso para cada container. Os front end foi servido corretamente e 
+abandonando a tentativa de mapear os recursos com o tryfik adicionei um docker compose para a imagem gerada dos serviços e configurando um proxy reverso para cada container. Os front end foi servido corretamente porem não foi possível configurar o proxy reverso para a api
 
 arquitetura proposta:
 https://imgur.com/8KJsvip
